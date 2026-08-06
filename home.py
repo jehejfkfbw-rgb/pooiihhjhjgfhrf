@@ -1,4 +1,6 @@
 import streamlit as st
+import json
+import os
 from datetime import datetime
 
 # إعداد الصفحة
@@ -25,9 +27,28 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# تهيئة قاعدة البيانات المؤقتة في الذاكرة لتخزين الطلبات وعرضها للمدير فوراً
+# ملف حفظ البيانات محلياً لضمان عدم ضياعها عند عمل Refresh
+DB_FILE = "teachers_data.json"
+
+
+def load_data():
+    if os.path.exists(DB_FILE):
+        with open(DB_FILE, "r", encoding="utf-8") as f:
+            try:
+                return json.load(f)
+            except:
+                return []
+    return []
+
+
+def save_data(data):
+    with open(DB_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+
+
+# تحميل الطلبات الحالية
 if "teachers_requests" not in st.session_state:
-    st.session_state.teachers_requests = []
+    st.session_state.teachers_requests = load_data()
 
 # --- القائمة الجانبية (بوابة الإدارة) ---
 st.sidebar.title("🔐 بوابة الإدارة")
@@ -43,8 +64,11 @@ if admin_password == CORRECT_PASSWORD:
     st.sidebar.markdown("---")
     st.sidebar.subheader("📋 طلبات المعلمين المسجلين")
 
+    # تحديث البيانات من الملف لضمان رؤية أحدث الطلبات
+    st.session_state.teachers_requests = load_data()
+
     if not st.session_state.teachers_requests:
-        st.sidebar.info("لا توجد طلبات تسجیل حتى الآن.")
+        st.sidebar.info("لا توجد طلبات تسجيل حتى الآن.")
     else:
         for idx, req in enumerate(st.session_state.teachers_requests):
             with st.sidebar.expander(
@@ -59,6 +83,7 @@ if admin_password == CORRECT_PASSWORD:
 
                 if st.button(f"حذف الطلب {idx+1}", key=f"del_{idx}"):
                     st.session_state.teachers_requests.pop(idx)
+                    save_data(st.session_state.teachers_requests)
                     st.rerun()
 
 elif admin_password:
@@ -100,7 +125,6 @@ with st.form("teacher_form"):
 
     if submitted:
         if full_name and phone_number and email and degree:
-            # حفظ كافة البيانات المطلوبة مع وقت التسجيل
             current_time = datetime.now().strftime("%Y-%m-%d %I:%M %p")
             new_request = {
                 "name": full_name,
@@ -110,7 +134,13 @@ with st.form("teacher_form"):
                 "subject": subject,
                 "time": current_time,
             }
-            st.session_state.teachers_requests.append(new_request)
+
+            # جلب البيانات الحالية، إضافة الطلب الجديد، وحفظها فوراً في الملف
+            current_data = load_data()
+            current_data.append(new_request)
+            save_data(current_data)
+
+            st.session_state.teachers_requests = current_data
             st.success(
                 "تم إرسال طلبك بنجاح! سيتم مراجعته والتواصل معك قريباً."
             )
