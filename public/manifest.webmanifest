@@ -1,0 +1,25 @@
+{
+  "name": "نبراس | NEBRAS — منصة تعليمية",
+  "short_name": "نبراس",
+  "description": "نبراس — نور المعرفة، طريق المستقبل. تطبيق تعليمي عربي للمراحل الابتدائية والإعدادية والثانوية والجامعية: كورسات، دروس، اختبارات فورية، وشهادات.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/dashboard",
+  "scope": "/",
+  "id": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#0E1F3B",
+  "theme_color": "#1B3A6B",
+  "categories": ["education", "productivity"],
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "كورساتي", "url": "/my-courses", "description": "متابعة الكورسات المسجّل فيها" },
+    { "name": "درجاتي", "url": "/grades", "description": "نتائج الاختبارات" },
+    { "name": "المكتبة", "url": "/library", "description": "تصفّح كورسات نبراس" }
+  ]
+}

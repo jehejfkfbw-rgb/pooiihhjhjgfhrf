@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="نبراس">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#234B81" />
+      <stop offset="55%" stop-color="#1B3A6B" />
+      <stop offset="100%" stop-color="#0E1F3B" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F3DF9B" />
+      <stop offset="45%" stop-color="#DFB53C" />
+      <stop offset="100%" stop-color="#C9A227" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="42%" r="45%">
+      <stop offset="0%" stop-color="#E9C963" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#E9C963" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#tile)" />
+  <rect width="512" height="512" rx="112" fill="url(#glow)" />
+
+  <g stroke="url(#gold)" stroke-width="20" stroke-linecap="round" opacity="0.95">
+    <path d="M256 78v46" />
+    <path d="M150 122l28 28" />
+    <path d="M362 122l-28 28" />
+    <path d="M104 216h38" />
+    <path d="M408 216h-38" />
+  </g>
+
+  <path d="M256 146l64 94-64 94-64-94z" fill="url(#gold)" />
+  <path d="M256 178l38 62-38 62-38-62z" fill="#FFF7DF" opacity="0.5" />
+
+  <path
+    d="M104 352c52-26 104-26 152 0 48-26 100-26 152 0v66c-52-26-104-26-152 0-48-26-100-26-152 0z"
+    fill="#F7F9FC"
+  />
+  <path d="M256 352v66" stroke="#1B3A6B" stroke-width="12" opacity="0.45" />
+  <g stroke="#93B1D8" stroke-width="10" stroke-linecap="round" opacity="0.9">
+    <path d="M134 382c26-10 52-11 80-3" />
+    <path d="M302 379c28-8 54-7 80 3" />
+    <path d="M134 406c26-10 52-11 80-3" />
+    <path d="M302 403c28-8 54-7 80 3" />
+  </g>
+</svg>
