@@ -1,0 +1,23 @@
+/* NEBRAS AI — design tokens for تصميم UI/UX وهوية بصرية (NB-RW6URV) */
+:root {
+  --color-bg: #07051a;
+  --color-surface: #120a2e;
+  --color-ink: #efeaff;
+  --color-dim: #a99fd0;
+  --color-primary: #a78bfa;
+  --color-accent: #22d3ee;
+  --color-success: #34d399;
+  --color-danger: #f87171;
+  --font-body: "Tajawal", system-ui, sans-serif;
+  --font-display: "Cairo", "Tajawal", sans-serif;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+  --line: rgba(148, 120, 255, 0.2);
+}
+/* الاستخدام: dir="rtl" إلزامي على <html> */
