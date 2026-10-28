@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@theme {
+  --color-nova-950: #05030f;
+  --color-nova-900: #0a0618;
+  --color-nova-800: #120a2e;
+  --color-nova-700: #1c1140;
+  --color-nova-line: rgba(148, 120, 255, 0.16);
+  --color-ink: #efeaff;
+  --color-ink-dim: #a99fd0;
+  --font-sans: "Tajawal", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: "Cairo", "Tajawal", "Segoe UI", sans-serif;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 11s ease-in-out infinite;
+  --animate-marquee: marquee 34s linear infinite;
+  --animate-pulse-dot: pulse-dot 2.2s ease-in-out infinite;
+  --animate-spin-slow: spin 22s linear infinite;
+  --animate-orbit: orbit 16s linear infinite;
+  --animate-shine: shine 3.2s linear infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-nova-950);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* ---- خلفية النجوم والسديم ---- */
+.starfield {
+  background-image:
+    radial-gradient(1.4px 1.4px at 18% 22%, rgba(255, 255, 255, 0.85) 0%, transparent 100%),
+    radial-gradient(1px 1px at 42% 68%, rgba(190, 170, 255, 0.8) 0%, transparent 100%),
+    radial-gradient(1.6px 1.6px at 64% 14%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 82% 44%, rgba(140, 220, 255, 0.75) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 30% 84%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 92% 78%, rgba(220, 190, 255, 0.7) 0%, transparent 100%),
+    radial-gradient(1.3px 1.3px at 8% 56%, rgba(255, 255, 255, 0.55) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 36%, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
+  background-size: 560px 560px;
+}
+
+.nebula {
+  background:
+    radial-gradient(42rem 30rem at 82% -8%, rgba(124, 58, 237, 0.32) 0%, transparent 62%),
+    radial-gradient(36rem 26rem at -6% 24%, rgba(34, 211, 238, 0.16) 0%, transparent 60%),
+    radial-gradient(30rem 22rem at 52% 118%, rgba(217, 70, 239, 0.14) 0%, transparent 60%);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(148, 120, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 120, 255, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 75%);
+}
+
+/* ---- مكونات زجاجية ---- */
+.glass {
+  background: rgba(20, 12, 46, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(148, 120, 255, 0.18);
+}
+
+.glass-soft {
+  background: rgba(16, 10, 38, 0.42);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(148, 120, 255, 0.12);
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, #a78bfa 0%, #22d3ee 45%, #f0abfc 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.shine-text {
+  background: linear-gradient(100deg, #efeaff 20%, #a78bfa 40%, #22d3ee 50%, #efeaff 70%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: var(--animate-shine);
+}
+
+.card-hover {
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s,
+    box-shadow 0.45s;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  border-color: rgba(167, 139, 250, 0.45);
+  box-shadow:
+    0 24px 60px -24px rgba(124, 58, 237, 0.45),
+    0 0 0 1px rgba(167, 139, 250, 0.12) inset;
+}
+
+.btn-primary {
+  position: relative;
+  background: linear-gradient(120deg, #7c3aed, #06b6d4);
+  box-shadow: 0 12px 40px -12px rgba(124, 58, 237, 0.7);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s, filter 0.3s;
+}
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.015);
+  box-shadow: 0 18px 54px -14px rgba(34, 211, 238, 0.55);
+  filter: brightness(1.08);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.8); }
+}
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(var(--orbit-r, 190px)) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(var(--orbit-r, 190px)) rotate(-360deg); }
+}
+@keyframes shine {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+/* rtl marquee */
+.marquee-mask {
+  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+}
+
+/* شريط التمرير */
+::-webkit-scrollbar { width: 10px; height: 8px; }
+::-webkit-scrollbar-track { background: #0a0618; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#7c3aed, #0e7490);
+  border-radius: 8px;
+}
+
+::selection {
+  background: rgba(124, 58, 237, 0.55);
+  color: #fff;
+}
+
+input, select, textarea {
+  color-scheme: dark;
+}
+
+.field {
+  width: 100%;
+  border-radius: 0.9rem;
+  background: rgba(10, 6, 24, 0.7);
+  border: 1px solid rgba(148, 120, 255, 0.2);
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  color: var(--color-ink);
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.field:focus {
+  border-color: rgba(34, 211, 238, 0.6);
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
+}
+.field::placeholder { color: #6f6795; }
