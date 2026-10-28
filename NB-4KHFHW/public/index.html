@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="متجر أزياء اختبار — مشروع NEBRAS AI (NB-4KHFHW)" />
+<title>متجر أزياء اختبار — NEBRAS AI</title>
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo">✦</span> متجر أزياء اختبار</div>
+  <nav id="nav">
+    <a href="#home">الرئيسية</a>
+    <a href="#features">المزايا</a>
+    <a href="#contact">تواصل</a>
+  </nav>
+  <button id="nav-toggle" aria-label="القائمة">☰</button>
+</header>
+<main>
+  <section id="home" class="hero">
+    <h1>متجر أزياء اختبار</h1>
+    <p>مشروع رقمي تم بناؤه بواسطة فريق NEBRAS AI الذكي — للمتابعة والدعم تواصل مع فريق الخدمة.</p>
+    <a class="cta" href="#contact">ابدأ الآن</a>
+    <div class="status" id="api-status" role="status">جارٍ التحقق من الخادم...</div>
+  </section>
+  <section id="features" class="grid">
+    <div class="card"><h3>تصميم عربي RTL</h3><p>واجهة كاملة بالعربية مع دعم الأجهزة المحمولة.</p></div>
+    <div class="card"><h3>ربط حقيقي بالـ API</h3><p>الصفحة تتصل بـ <code>/api/health</code> و<code>/api/echo</code> وتعرض الرد الفعلي.</p></div>
+    <div class="card"><h3>جاهز للتطوير</h3><p>بنية ملفات منظمة (public/ و src/ و docs/) قابلة للتمديد.</p></div>
+  </section>
+  <section id="contact" class="panel">
+    <h2>أرسل رسالة تجريبية</h2>
+    <form id="echo-form">
+      <input type="text" id="echo-msg" placeholder="اكتب رسالة..." required />
+      <button type="submit">إرسال عبر /api/echo</button>
+      <output id="echo-out" aria-live="polite"></output>
+    </form>
+  </section>
+</main>
+<footer>© NEBRAS AI — مشروع NB-4KHFHW — تم إنشاء هذا الملف آلياً بواسطة محرك التنفيذ</footer>
+<script src="./app.js"></script>
+</body>
+</html>
